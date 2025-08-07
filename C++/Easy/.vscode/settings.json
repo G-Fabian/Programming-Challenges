@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "876-middle_of_the_linked_list": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
