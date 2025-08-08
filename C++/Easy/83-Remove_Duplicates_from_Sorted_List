@@ -1,0 +1,37 @@
+// Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+
+//Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+ 
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        
+        // Dynamic array to set -101 as the the first element then head
+        // prevents issues when head = nullptr
+        ListNode* ans = new ListNode(-101, head);
+        ListNode* dummy = ans;
+
+        // Traverse the linked list
+        while(dummy!=nullptr){
+            // Duplicate is found skip until there is no duplicate or nullptr
+            while(dummy->next!=nullptr && dummy->next->val == dummy->val){
+                dummy->next = dummy->next->next;
+            }
+            // Sets dummy to a valid node
+            dummy = dummy->next;
+       }
+        // Trash the dynamic array and store solution
+        ListNode* result = ans->next;
+        delete ans;
+
+        return result;
+    }
+};
