@@ -2,7 +2,8 @@
     "files.associations": {
         "876-middle_of_the_linked_list": "cpp",
         "83-remove_duplicates_from_sorted_list": "cpp",
-        "704-binary_search": "cpp"
+        "704-binary_search": "cpp",
+        "a": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
