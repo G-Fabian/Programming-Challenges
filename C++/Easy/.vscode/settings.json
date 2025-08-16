@@ -3,7 +3,11 @@
         "876-middle_of_the_linked_list": "cpp",
         "83-remove_duplicates_from_sorted_list": "cpp",
         "704-binary_search": "cpp",
-        "a": "cpp"
+        "a": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
