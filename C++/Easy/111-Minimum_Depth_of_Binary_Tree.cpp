@@ -30,9 +30,9 @@ public:
         
         int minDepthVal = INT_MAX;
 
-        // Push each child into stack and continuing
-        // traversing until a node reaches null, then
-        // pop stack element until no elements left in stack
+        // Push each child into stack and continue
+        // traversing until a node reaches null, then backtrack
+        // by popping stack element. Repeat until no elements left in stack
         while(!myStack.empty()){
 
             pair<TreeNode*, int> p = myStack.top();
