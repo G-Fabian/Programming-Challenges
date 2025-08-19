@@ -17,27 +17,41 @@ class Solution {
 public:
     int minDepth(TreeNode* root) {
         
-        stack<pair<TreeNode*, int>> myStack; // node + depth
+        // Iterative DFS (with a stack)
+
+        // stack will contain an element with both node and depth
+        stack<pair<TreeNode*, int>> myStack;
         
         // basecase: root is null
         if(!root){ return 0; }
+
+        // begin stack pushing root
         myStack.push({root,1});
         
         int minDepthVal = INT_MAX;
+
+        // Push each child into stack and continuing
+        // traversing until a node reaches null, then
+        // pop stack element until no elements left in stack
         while(!myStack.empty()){
 
-            auto [node, depth] = myStack.top();
+            pair<TreeNode*, int> p = myStack.top();
             myStack.pop();
 
-         
-             if (!node->left && !node->right){
+            TreeNode* node = p.first;
+            int depth = p.second;
+
+            // Node with both children = nullptr
+            if (!node->left && !node->right){
                 minDepthVal = min(minDepthVal, depth);
             }
 
+            // Continue exploring left & save depth
             if(node->left != nullptr){
                 myStack.push({node->left, depth + 1});
             }
 
+             // Continue exploring right & save depth
             if(node->right != nullptr){
                myStack.push({node->right, depth + 1});
             }
@@ -45,5 +59,21 @@ public:
         }
 
         return minDepthVal;
+
+
+
+        // // Recursive Solution
+    
+        // // basecase: root is null
+        // if(root==nullptr)
+        //     return 0;
+        // // Traverse right if left child is null
+        // if(root->left == nullptr)
+        //     return minDepth(root->right)+1;
+        // // Traverse left if left child is null
+        // if(root->right == nullptr)
+        //     return minDepth(root->left)+1;
+        // // Parent has both children, expand both & return minimun depth
+        // return min(minDepth(root->left), minDepth(root->right)) + 1;
     }
 };
