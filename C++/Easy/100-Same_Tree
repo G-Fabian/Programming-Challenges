@@ -15,14 +15,18 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (!p && !q) {
+
+        // Basecase: Both p and q has nullptr roots
+        if (p == nullptr && q == nullptr) {
             return true;
         }
         
+        // When both pointers are valid and values match continue the recursion
         if (p && q && p->val == q->val) {
             return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
         }
         
+        // Both nodes do not match nullptr or values
         return false;        
     }
 };
