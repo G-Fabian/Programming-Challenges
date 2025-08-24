@@ -17,5 +17,18 @@ class Solution {
 public:
     int maxDepth(TreeNode* root) {
         
+        // Current node is null or after leaf node
+        if(root == nullptr){
+            return 0;
+        }
+
+        // When traversing back to the root node add 1 per level
+        // once we return to the root node calculate the max for the 
+        // left or right node
+        if(root){
+            return max(maxDepth(root->left)+1, maxDepth(root->right)+1);
+        }
+
+        return 0;
     }
 };
