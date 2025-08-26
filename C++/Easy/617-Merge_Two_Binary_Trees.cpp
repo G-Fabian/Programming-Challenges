@@ -21,17 +21,22 @@ public:
 
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
         
+        // root1 is nullptr
         if(!root1)
             return root2;
         
+        // root2 is nullptr
         if(!root2)
             return root1;
 
+        // Both root1 and root2 are valid nodes so, merge them together  
         root1->val = root1->val + root2->val;
         
+        // Recursively find and reassign root1's children (left and right node)
         root1->left  = mergeTrees(root1->left, root2->left);
         root1->right = mergeTrees(root1->right, root2->right);
 
+        // Return parent node
         return root1;
     }
 };
