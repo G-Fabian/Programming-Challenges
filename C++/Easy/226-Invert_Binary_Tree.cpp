@@ -13,22 +13,7 @@
  */
 class Solution {
 public:
-
-    TreeNode* switchNodes(TreeNode* root){
-
-        if(!root)
-            return root;
-
-        TreeNode* temp = root->left;
-        root->left = root->right;
-        root->right = temp;
-
-        switchNodes(root->left);
-        switchNodes(root->right);
-
-        return root;
-    }
-
+    
     TreeNode* invertTree(TreeNode* root) {
 
         if(root == nullptr)
@@ -36,4 +21,25 @@ public:
 
         return switchNodes(root);
     }
+
+    TreeNode* switchNodes(TreeNode* root){
+
+        // Root must be a valid node cannot be null
+        if(!root)
+            return root;
+
+        // Swap left and right child
+        TreeNode* temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+
+        // Recursively traverse to the left and right nodes
+        // to invert every left and right child node
+        switchNodes(root->left);
+        switchNodes(root->right);
+
+        return root;
+    }
+
+
 };
