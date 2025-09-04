@@ -1,40 +1,28 @@
-// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+// Given an array of integers nums and an integer target, return indices of the
+// two numbers such that they add up to target. You may assume that each input
+// would have exactly one solution, and you may not use the same element twice.
 // You can return the answer in any order.
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        
-        int left = 0;
-        int right = nums.size()-1;
 
-        vector<int> solution;
-        while(left<nums.size() && right>0){
+        map<int, int> solution; // Store number and index
 
-            int sum = nums[left] + nums[right];
+        for (int i = 0; i < nums.size(); i++) {
 
-            sum = abs(sum);
-            target = abs(target);
-            if(sum == target){
-                solution.push_back(left);
-                solution.push_back(right);
-                return solution;
+            // Calculate difference
+            int difference = target - nums[i];
+
+            // Search if difference is in map
+            auto it = solution.find(difference);
+            if (it != solution.end()) {
+                return {it->second, i};
             }
-
-            if(sum < target)
-                left++;
-            
-            if(sum > target)
-                right--;
+            // Save current number and index
+            solution.insert({nums[i], i});
         }
-
-        return nums;
+        // Solution not found
+        return {0, 0};
     }
 };
-
-
-// [-1,-2,-3,-4,-5]
-// target = -8
-// -1 -5 = -6
-// -2 -5 = -7
