@@ -5,8 +5,13 @@
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
 
+    // Traverse the array in a single pass. For each number, compute the 
+    // difference between the target and the number. If the difference is 
+    // already in the map, we found a match. Otherwise, store the number 
+    // and its index in the map for future checks.
+    vector<int> twoSum(vector<int>& nums, int target) {
+       
         map<int, int> solution; // Store number and index
 
         for (int i = 0; i < nums.size(); i++) {
