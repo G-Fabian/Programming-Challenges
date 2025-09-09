@@ -16,8 +16,6 @@ public:
         s = eraseIt(s);
         t = eraseIt(t);
 
-        cout<<s<<" "<<t<<endl;
-
         if(s==t) return true;
         else return false;
     }
