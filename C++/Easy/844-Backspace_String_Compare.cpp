@@ -10,26 +10,37 @@ class Solution {
 public:
     bool backspaceCompare(string s, string t) {
         
-        char* ptr1 = nullptr;
-        char* ptr2;
+        string a = backspace(s);
+        string b = backspace(t);
 
-        s = eraseIt(s);
-        t = eraseIt(t);
-
-        if(s==t) return true;
+        cout<<"Final s: "<< a <<endl;
+        cout<<"Final t: "<< b <<endl;
+        if(a==b) return true;
         else return false;
     }
 
-    string eraseIt(string s){
-        
-        for(int i=0; i<s.size()-1; i++){
+    string backspace(string s){
 
-            if(s[i+1]=='#'){
-                s.erase (i,2);
-            }
-        }
+        string::iterator it = s.begin();
+        string::iterator it2 = s.begin();
         
-        return s;
+        it2++;
+
+        string test;
+        while(it != s.end()){
+            cout<<"it: "<<*it<<endl;
+            cout<<"it2: "<<*it2<<endl;
+
+            if(*it == '#' || *it2 == '#')
+                cout<<"backspace"<<endl;
+            else
+                test+=*it;
+
+            it++;
+            it2++;
+        }
+
+        return test;
     }
 
 };
