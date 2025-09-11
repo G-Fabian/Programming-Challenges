@@ -1,11 +1,3 @@
-// Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
-// Note that after backspacing an empty text, the text will continue empty.4
-
-// Constraints:
-
-// 1 <= s.length, t.length <= 200
-// s and t only contain lowercase letters and '#' characters.
-
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {
@@ -17,6 +9,7 @@ public:
         cout<<"Final t: "<< b <<endl;
         if(a==b) return true;
         else return false;
+        // return true;
     }
 
     string backspace(string s){
@@ -26,21 +19,24 @@ public:
         
         it2++;
 
-        string test;
-        while(it != s.end()){
-            cout<<"it: "<<*it<<endl;
-            cout<<"it2: "<<*it2<<endl;
+        string test = s;
+        while(it != s.end() && it2 != s.end()){
+            cout<<"Debug: "<<*it<< " " <<*it2<<endl;
 
-            if(*it == '#' || *it2 == '#')
-                cout<<"backspace"<<endl;
-            else
-                test+=*it;
-
-            it++;
-            it2++;
+            if(*it2 == '#'){
+                s.erase(it2);
+                cout<<"a: "<<s<<endl;
+                s.erase(it);
+                cout<<"b: "<<s<<endl;
+                it--;
+                it2--;
+            }else{
+                it++;
+                it2++;
+            }
         }
 
-        return test;
+        return s;
     }
 
 };
@@ -49,6 +45,7 @@ public:
 // s = "a#c", t = "b"
 
 // a #
+// # c
 // c end
 // return c
 
