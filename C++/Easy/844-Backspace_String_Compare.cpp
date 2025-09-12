@@ -1,4 +1,7 @@
 class Solution {
+
+
+// Possible solution go backwards
 public:
     bool backspaceCompare(string s, string t) {
         
@@ -40,24 +43,3 @@ public:
     }
 
 };
-
-
-// s = "a#c", t = "b"
-
-// a #
-// # c
-// c end
-// return c
-
-
-// b end
-// return b
-
-// (ab)##
-// a(b#)#
-// (a#)
-// return nothing
-
-// (c#)d#
-// (d#)
-// return nothing
