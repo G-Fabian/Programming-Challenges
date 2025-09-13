@@ -2,6 +2,7 @@ class Solution {
 
 
 // Possible solution go backwards
+// working on solution on paper
 public:
     bool backspaceCompare(string s, string t) {
         
