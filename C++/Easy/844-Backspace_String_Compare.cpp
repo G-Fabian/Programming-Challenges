@@ -1,46 +1,67 @@
 class Solution {
-
-
-// Possible solution go backwards
-// working
 public:
     bool backspaceCompare(string s, string t) {
         
-        string a = backspace(s);
-        string b = backspace(t);
+        int k = backspace(s);
 
-        cout<<"Final s: "<< a <<endl;
-        cout<<"Final t: "<< b <<endl;
-        if(a==b) return true;
-        else return false;
-        // return true;
+        cout<<s<<endl;
+
+        int p = backspace(t);
+
+        cout<<t<<endl;
+
+        if (k != p) return false;
+
+        for (int i = 0; i < k; i++) {
+            if (s[i] != t[i]) return false;
+        }
+
+        return true;
     }
 
-    string backspace(string s){
+    int backspace(string& s){
 
-        string::iterator it = s.begin();
-        string::iterator it2 = s.begin();
-        
-        it2++;
+        int k = 0;
 
-        string test = s;
-        while(it != s.end() && it2 != s.end()){
-            cout<<"Debug: "<<*it<< " " <<*it2<<endl;
+        /*
+        whole string: ab#c
+        a k=0, k=1
+        ab k=1, k=2
+        ab# k=2, k=1
+        ac#
 
-            if(*it2 == '#'){
-                s.erase(it2);
-                cout<<"a: "<<s<<endl;
-                s.erase(it);
-                cout<<"b: "<<s<<endl;
-                it--;
-                it2--;
-            }else{
-                it++;
-                it2++;
+        */
+
+        for(char c:s){
+            if(c!='#'){
+                s[k++] = c;
+            } else if (k>0){
+                k--;
             }
         }
 
-        return s;
+        return k;
     }
 
 };
+
+
+// s = "a#c", t = "b"
+
+// a #
+// # c
+// c end
+// return c
+
+
+// b end
+// return b
+
+// ab##
+// ab##
+// 
+// return nothing
+
+// (c#)d#
+// (d#)
+// return nothing
