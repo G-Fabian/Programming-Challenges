@@ -1,16 +1,12 @@
-
-
 // Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
 // Note that after backspacing an empty text, the text will continue empty.
-// **Note: challenging one practice another time 
-
-/// 
+// **Note: challenging one practice another time  
 
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {
 
-        // Obtain lengths of strings after alteration        
+        // Obtain lengths of strings after alteration.        
         int k = backspace(s);
         int p = backspace(t);
 
