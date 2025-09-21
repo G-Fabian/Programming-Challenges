@@ -2,6 +2,8 @@
 // Note that after backspacing an empty text, the text will continue empty.
 // **Note: challenging one practice another time  
 
+
+
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {
