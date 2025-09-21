@@ -11,5 +11,25 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         
+        map<int, int> maps;
+        int max = INT_MIN;
+        int test;
+
+        for(int i=0; i< nums.size(); i++){
+
+            if (maps.find(nums[i]) != maps.end()) {
+                maps[nums[i]]++;
+            } else {
+                maps[nums[i]] = 1;
+            }
+
+            if(max < maps[nums[i]]){
+                test = nums[i];
+                max = maps[nums[i]];
+            }
+
+        }
+
+        return test;
     }
 };

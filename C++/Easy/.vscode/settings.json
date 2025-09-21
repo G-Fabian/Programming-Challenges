@@ -8,7 +8,11 @@
         "deque": "cpp",
         "vector": "cpp",
         "string_view": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "memory": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
