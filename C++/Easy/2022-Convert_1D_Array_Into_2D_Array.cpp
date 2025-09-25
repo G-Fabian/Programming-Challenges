@@ -6,19 +6,17 @@
 class Solution {
 public:
     vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
-        
+        if (original.size() != m * n) return {};
+
+        vector<vector<int>> array_2D(m, vector<int>(n));
+
+        for(int i=0; i< m; i++){
+            for(int j=0; j<n; j++){
+                array_2D[i][j] = original[i * n + j];
+            }
+        }
+
+
+        return array_2D;
     }
 };
-
-1 2 3 4 5 6
-
-1 2
-3 4
-5 6
-
-0+0  0+1
-1+1  1+2
-2+2  2+3
-3+3  3+4
-
-array[r+c]
